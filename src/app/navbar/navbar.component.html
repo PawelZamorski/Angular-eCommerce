@@ -1,0 +1,29 @@
+<nav ngbNav #nav="ngbNav" class="navbar navbar-expand-lg">
+    <a class="navbar-brand" routerLink="/">Brand Img</a>
+    <!-- responsive navbar -->
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+    </button>
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li [ngbNavItem]="1">
+                <a ngbNavLink routerLink="/home" routerLinkActive="active" (click)="isMenuCollapsed = true">Home</a>
+            </li>
+            <li [ngbNavItem]="2">
+                <a ngbNavLink routerLink="/shopping-cart" (click)="isMenuCollapsed = true">Shopping Cart</a>
+            </li>
+            <li [ngbNavItem]="3">
+                <a ngbNavLink routerLink="/login" (click)="isMenuCollapsed = true">Login</a>
+            </li>
+            <li ngbDropdown>
+                <a href (click)="false" class="nav-link" ngbDropdownToggle role="button">User Name</a>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+                <a ngbDropdownItem routerLink="/my-orders" (click)="isMenuCollapsed = true">My Orders</a>
+                <a ngbDropdownItem routerLink="/admin/admin-orders" (click)="isMenuCollapsed = true">Manage Orders</a>
+                <a ngbDropdownItem routerLink="/admin/admin-products" (click)="isMenuCollapsed = true">Manage Products</a>
+                <a ngbDropdownItem >Log out</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
