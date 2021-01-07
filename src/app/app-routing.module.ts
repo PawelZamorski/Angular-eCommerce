@@ -11,18 +11,19 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 // sets up routes constant where you define your routes
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'check-out', component: CheckOutComponent },
-  { path: 'my-orders', component: MyOrdersComponent },
-  { path: 'order-success', component: OrderSuccessComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin/admin-orders', component: AdminOrdersComponent},
-  { path: 'admin/admin-products', component: AdminProductsComponent },
+  { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService] },
+  { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
+  { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService] },
+  { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuardService] },
+  { path: 'admin/admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuardService] },
+  { path: 'admin/admin-products', component: AdminProductsComponent, canActivate: [AuthGuardService] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ]; 

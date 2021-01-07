@@ -26,6 +26,7 @@ import { NgbNavModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootstra
 
 // Services
 import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,10 @@ import { AuthService } from './services/auth.service';
     NgbCollapseModule,
     NgbDropdownModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
