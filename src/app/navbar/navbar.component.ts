@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,11 @@ export class NavbarComponent {
   // Start with the menu collapsed so that it does not appear initially when the page loads on a small screen!
   public isMenuCollapsed = true;
 
-  constructor() {  }
+  constructor(public auth: AuthService) {
+  }
+
+  logout() {
+    this.auth.logout();
+  }
 
 }

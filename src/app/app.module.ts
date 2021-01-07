@@ -20,8 +20,12 @@ import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { NgbNavModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+
+// Services
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -44,12 +48,13 @@ import { NgbNavModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootstra
     // AngularFire modules
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     // Bootstrap modules
     NgbNavModule,
     NgbCollapseModule,
     NgbDropdownModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
