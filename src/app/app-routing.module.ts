@@ -9,6 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminProductFormComponent } from './admin/admin-product-form/admin-product-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuardService] },
   { path: 'admin/admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuardService] },
   { path: 'admin/admin-products', component: AdminProductsComponent, canActivate: [AuthGuardService] },
+  { path: 'admin/products/new', component: AdminProductFormComponent, canActivate: [AuthGuardService] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ]; 

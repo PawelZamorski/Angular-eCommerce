@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -15,6 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AdminProductFormComponent } from './admin/admin-product-form/admin-product-form.component';
 
 import { environment } from '../environments/environment';
 
@@ -27,6 +30,8 @@ import { NgbNavModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootstra
 // Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { CategoryService } from './services/category.service';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -40,12 +45,14 @@ import { AuthGuardService } from './services/auth-guard.service';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
+    AdminProductFormComponent,
     LoginComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     // AngularFire modules
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -57,7 +64,9 @@ import { AuthGuardService } from './services/auth-guard.service';
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    CategoryService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
